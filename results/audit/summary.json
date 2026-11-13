@@ -1,0 +1,71 @@
+{
+  "reviewer": "Vương Xuân Dương (học viên); Codex soạn nhãn sơ bộ",
+  "reviewer_type": "Student-verified, AI-assisted",
+  "human_review_status": "reviewed_and_confirmed_by_student",
+  "method": "Codex drafted labels with reasons after reading every sampled chunk and all 15 test top-3 cases against normalized source page text; original PDF pages 324,336,337,357,361 were inspected visually. The student read every label, checked it against the source and confirmed it. Not blinded: the reviewer had seen the metrics. Scores are not inferred from cosine or exact-match labels.",
+  "dev_run": "20261113T103339652250Z-dev",
+  "test_run": "20261113T103637017303Z-test",
+  "selected_strategy_before_test": "C",
+  "strategies": {
+    "A": {
+      "coherence_n": 10,
+      "coherence_sum": 9,
+      "coherence_mean": 0.9,
+      "metadata_correct_n": 15,
+      "metadata_n": 15,
+      "filter_compliant_n": 1,
+      "filter_question_n": 1,
+      "grounding_counts": {
+        "0": 0,
+        "1": 2,
+        "2": 3
+      },
+      "grounding_mean": 1.6,
+      "strict_hit1_n": 2,
+      "strict_hit3_n": 2,
+      "ai_reviewed_hit1_n": 2,
+      "ai_reviewed_hit3_n": 3,
+      "test_questions": 5
+    },
+    "B": {
+      "coherence_n": 10,
+      "coherence_sum": 11,
+      "coherence_mean": 1.1,
+      "metadata_correct_n": 15,
+      "metadata_n": 15,
+      "filter_compliant_n": 1,
+      "filter_question_n": 1,
+      "grounding_counts": {
+        "0": 0,
+        "1": 2,
+        "2": 3
+      },
+      "grounding_mean": 1.6,
+      "strict_hit1_n": 2,
+      "strict_hit3_n": 3,
+      "ai_reviewed_hit1_n": 2,
+      "ai_reviewed_hit3_n": 3,
+      "test_questions": 5
+    },
+    "C": {
+      "coherence_n": 10,
+      "coherence_sum": 11,
+      "coherence_mean": 1.1,
+      "metadata_correct_n": 15,
+      "metadata_n": 15,
+      "filter_compliant_n": 1,
+      "filter_question_n": 1,
+      "grounding_counts": {
+        "0": 0,
+        "1": 2,
+        "2": 3
+      },
+      "grounding_mean": 1.6,
+      "strict_hit1_n": 2,
+      "strict_hit3_n": 3,
+      "ai_reviewed_hit1_n": 2,
+      "ai_reviewed_hit3_n": 3,
+      "test_questions": 5
+    }
+  }
+}

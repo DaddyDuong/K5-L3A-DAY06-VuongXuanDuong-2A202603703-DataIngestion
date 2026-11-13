@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-11-13T10:57:12.258867+00:00",
+  "inputs": {
+    "results/audit/review_decisions.json": "0c2cf09a3da43cb5d8a43e67fd33224c4e836e986b109b41298c8b61882678ca",
+    "results/20261113T103637017303Z-test/traces.jsonl": "1801537061d6b33c1880bae3dc7a072861f3882db5448514c7f178faaf950629",
+    "results/20261113T103637017303Z-test/coherence_samples.jsonl": "51d51eae54861ffd010ac53ece6e2b008e3a9445cc4a8326c0b3431a03629e6e",
+    "results/selection.json": "0e9627bc95221668cd779aea145a3cb08c6fbad54bcdc3140b38e573ce8033b2"
+  },
+  "gold_and_raw_trace_modified": false,
+  "pdf_text_pages_verified": [
+    331,
+    333,
+    336,
+    337,
+    339,
+    340,
+    342,
+    343,
+    350,
+    355,
+    357,
+    359,
+    360,
+    361,
+    368,
+    369
+  ],
+  "visually_reviewed_pdf_pages": [
+    324,
+    336,
+    337,
+    357,
+    361
+  ],
+  "reviewer_type": "Student-verified, AI-assisted",
+  "human_review_status": "reviewed_and_confirmed_by_student"
+}

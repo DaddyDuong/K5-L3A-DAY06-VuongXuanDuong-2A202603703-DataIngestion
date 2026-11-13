@@ -1,0 +1,413 @@
+{
+  "source_id": "openstax-introduction-python-ch14-15",
+  "title": "Introduction to Python Programming",
+  "publisher": "OpenStax, Rice University",
+  "source_path_or_url": "https://assets.openstax.org/oscms-prodcms/media/documents/Introduction_to_Python_Programming-WEB.pdf",
+  "local_path": "data/raw/Introduction_to_Python_Programming-WEB.pdf",
+  "sha256": "e1298e4fcfe541a8fc3bb786c5756d3d2be8e6ffc07997f1bc1e0ac270be383d",
+  "accessed_at": "2026-11-13T10:16:01.773506+00:00",
+  "original_publication_year": 2024,
+  "snapshot_note": "Downloaded PDF copyright 2026; SHA-256 identifies exact snapshot",
+  "license_or_permission": "CC BY-NC-SA 4.0; see PDF physical page 4 for attribution terms and third-party exclusions",
+  "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "attribution": "Access for free at openstax.org.",
+  "total_pdf_pages": 397,
+  "selected_pdf_pages": [
+    319,
+    370
+  ],
+  "selected_printed_pages": [
+    309,
+    360
+  ],
+  "retained_page_count": 52,
+  "counted_content_page_count": 42,
+  "counting_rule": "Count physical teaching pages in chapters 14-15, conservatively excluding chapter openings (319,341), summary pages (338-340,367-370), and sparse table continuation (358). Keep all 52 selected pages in retrieval corpus for context. PDF pages are 1-based; printed page = PDF page - 10 in this selection.",
+  "extractor": "pdftotext version 26.10.0",
+  "extraction_mode": "pdftotext -layout",
+  "normalization": "Unicode NFC; remove soft hyphens and repeated attribution footer; trim trailing whitespace; collapse excessive blank lines; preserve code indentation. Page headers retained. Attribution stored separately on every page record.",
+  "metadata_filter": {
+    "field": "chapter",
+    "type": "integer",
+    "values": [
+      14,
+      15
+    ],
+    "provenance": "PDF chapter headings and table of contents"
+  },
+  "outputs": [
+    "data/processed/pages.jsonl",
+    "data/processed/page_audit.csv",
+    "data/processed/source_license.txt"
+  ],
+  "limitations": [
+    "No OCR needed for the selected text layer. Layout extraction may flatten tables, detach code or lose information in figures.",
+    "Extraction checks are not verification of benchmark evidence; each future gold quote must be checked against the source PDF."
+  ],
+  "pages": [
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-319",
+      "pdf_page": 319,
+      "printed_page": 309,
+      "char_count": 1146,
+      "counted_content_page": false
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-320",
+      "pdf_page": 320,
+      "printed_page": 310,
+      "char_count": 1603,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-321",
+      "pdf_page": 321,
+      "printed_page": 311,
+      "char_count": 889,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-322",
+      "pdf_page": 322,
+      "printed_page": 312,
+      "char_count": 1610,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-323",
+      "pdf_page": 323,
+      "printed_page": 313,
+      "char_count": 922,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-324",
+      "pdf_page": 324,
+      "printed_page": 314,
+      "char_count": 3074,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-325",
+      "pdf_page": 325,
+      "printed_page": 315,
+      "char_count": 1171,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-326",
+      "pdf_page": 326,
+      "printed_page": 316,
+      "char_count": 1441,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-327",
+      "pdf_page": 327,
+      "printed_page": 317,
+      "char_count": 1627,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-328",
+      "pdf_page": 328,
+      "printed_page": 318,
+      "char_count": 2831,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-329",
+      "pdf_page": 329,
+      "printed_page": 319,
+      "char_count": 1010,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-330",
+      "pdf_page": 330,
+      "printed_page": 320,
+      "char_count": 1939,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-331",
+      "pdf_page": 331,
+      "printed_page": 321,
+      "char_count": 1699,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-332",
+      "pdf_page": 332,
+      "printed_page": 322,
+      "char_count": 1265,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-333",
+      "pdf_page": 333,
+      "printed_page": 323,
+      "char_count": 1339,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-334",
+      "pdf_page": 334,
+      "printed_page": 324,
+      "char_count": 1685,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-335",
+      "pdf_page": 335,
+      "printed_page": 325,
+      "char_count": 1640,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-336",
+      "pdf_page": 336,
+      "printed_page": 326,
+      "char_count": 1937,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-337",
+      "pdf_page": 337,
+      "printed_page": 327,
+      "char_count": 1728,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-338",
+      "pdf_page": 338,
+      "printed_page": 328,
+      "char_count": 2140,
+      "counted_content_page": false
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-339",
+      "pdf_page": 339,
+      "printed_page": 329,
+      "char_count": 1522,
+      "counted_content_page": false
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-340",
+      "pdf_page": 340,
+      "printed_page": 330,
+      "char_count": 767,
+      "counted_content_page": false
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-341",
+      "pdf_page": 341,
+      "printed_page": 331,
+      "char_count": 1176,
+      "counted_content_page": false
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-342",
+      "pdf_page": 342,
+      "printed_page": 332,
+      "char_count": 3023,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-343",
+      "pdf_page": 343,
+      "printed_page": 333,
+      "char_count": 2092,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-344",
+      "pdf_page": 344,
+      "printed_page": 334,
+      "char_count": 2488,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-345",
+      "pdf_page": 345,
+      "printed_page": 335,
+      "char_count": 1458,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-346",
+      "pdf_page": 346,
+      "printed_page": 336,
+      "char_count": 2300,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-347",
+      "pdf_page": 347,
+      "printed_page": 337,
+      "char_count": 716,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-348",
+      "pdf_page": 348,
+      "printed_page": 338,
+      "char_count": 3517,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-349",
+      "pdf_page": 349,
+      "printed_page": 339,
+      "char_count": 1302,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-350",
+      "pdf_page": 350,
+      "printed_page": 340,
+      "char_count": 3273,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-351",
+      "pdf_page": 351,
+      "printed_page": 341,
+      "char_count": 1047,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-352",
+      "pdf_page": 352,
+      "printed_page": 342,
+      "char_count": 3475,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-353",
+      "pdf_page": 353,
+      "printed_page": 343,
+      "char_count": 2574,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-354",
+      "pdf_page": 354,
+      "printed_page": 344,
+      "char_count": 2274,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-355",
+      "pdf_page": 355,
+      "printed_page": 345,
+      "char_count": 1366,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-356",
+      "pdf_page": 356,
+      "printed_page": 346,
+      "char_count": 2041,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-357",
+      "pdf_page": 357,
+      "printed_page": 347,
+      "char_count": 2232,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-358",
+      "pdf_page": 358,
+      "printed_page": 348,
+      "char_count": 428,
+      "counted_content_page": false
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-359",
+      "pdf_page": 359,
+      "printed_page": 349,
+      "char_count": 3188,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-360",
+      "pdf_page": 360,
+      "printed_page": 350,
+      "char_count": 2535,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-361",
+      "pdf_page": 361,
+      "printed_page": 351,
+      "char_count": 2489,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-362",
+      "pdf_page": 362,
+      "printed_page": 352,
+      "char_count": 1027,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-363",
+      "pdf_page": 363,
+      "printed_page": 353,
+      "char_count": 821,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-364",
+      "pdf_page": 364,
+      "printed_page": 354,
+      "char_count": 928,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-365",
+      "pdf_page": 365,
+      "printed_page": 355,
+      "char_count": 763,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-366",
+      "pdf_page": 366,
+      "printed_page": 356,
+      "char_count": 1190,
+      "counted_content_page": true
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-367",
+      "pdf_page": 367,
+      "printed_page": 357,
+      "char_count": 1664,
+      "counted_content_page": false
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-368",
+      "pdf_page": 368,
+      "printed_page": 358,
+      "char_count": 3091,
+      "counted_content_page": false
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-369",
+      "pdf_page": 369,
+      "printed_page": 359,
+      "char_count": 2062,
+      "counted_content_page": false
+    },
+    {
+      "page_id": "openstax-introduction-python-ch14-15:pdf-370",
+      "pdf_page": 370,
+      "printed_page": 360,
+      "char_count": 791,
+      "counted_content_page": false
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "selected_strategy": "C",
+  "fingerprints": {
+    "config_sha256": "9945148689a3379d22fe4e487c003967a037d2724954388521de8677730038e6",
+    "questions_sha256": "81bb90bb97dbf49bc0a9399b16b0ffe5e05a2a8b6f473d37f8c5a6c2a9c4ab93",
+    "pages_sha256": "383fb2b1990351e9856237f08d9f6583fd03bb1f52ddef4871f230b1d356a1c1",
+    "source_code_sha256": "9411d1f3013d5cb422eda2fc55f880933fe06a2319d200830208dfcdd024218f"
+  },
+  "dev_run": "results/20261113T103339652250Z-dev",
+  "selection_rule": "Choose strategy by dev Evidence Hit@3, then dev Hit@1, then lower measured ingestion time; if still tied choose A, then B, then C. Freeze configuration before running test. Never use test labels to tune.",
+  "selected_at": "2026-11-13T10:34:08.723934+00:00",
+  "human_audit_status": "pending; not used in the selection rule"
+}

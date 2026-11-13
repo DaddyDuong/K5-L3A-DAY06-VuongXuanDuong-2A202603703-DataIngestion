@@ -1,65 +1,181 @@
-# Starter · PostgreSQL + pgvector
+# Pipeline lab — PostgreSQL + pgvector + E5 local
 
-Bộ khởi động **tùy chọn** cho lab cá nhân. Docker Compose tạo PostgreSQL + pgvector local; các file trong `src/` là **khung pseudocode có TODO**, chưa đọc tài liệu, tạo embedding, lưu vector hay chạy benchmark. Bạn cần tự hiện thực. Vẫn có thể chọn Qdrant, Chroma hoặc vector store tương đương theo [GUIDE.md](../GUIDE.md).
+Pipeline đã triển khai trong `src/`: đọc corpus JSONL theo trang, chia chunk,
+embedding thật trên CPU, lưu PostgreSQL/pgvector, tìm top-3 và đánh giá evidence.
+Mặc định chỉ chạy **dev**. Không cần API key.
 
-## Cấu trúc
-
-```text
-starter/
-├── docker-compose.yml     # PostgreSQL 16 + pgvector, chỉ mở cổng local
-├── init.sql               # bật extension khi tạo database mới
-├── requirements.txt       # psycopg, pypdf và python-dotenv
-├── .env.example           # cấu hình mẫu; copy thành .env
-├── scripts/check_setup.py # kiểm tra kết nối và extension (đã chạy được)
-├── src/
-│   ├── models.py          # cấu trúc dữ liệu mẫu
-│   ├── ingestion.py       # TODO: đọc / chuẩn hóa tài liệu
-│   ├── chunking.py        # TODO: chia chunk
-│   ├── embeddings.py      # TODO: chọn model API hoặc local
-│   ├── store.py           # TODO: lưu vector, metadata và filter
-│   ├── evaluation.py      # TODO: chấm truy xuất, lưu trace
-│   └── run.py             # TODO: kết nối các bước thành pipeline
-├── data/                  # bạn tự chuẩn bị corpus được phép sử dụng
-└── results/               # lưu kết quả của bạn
-```
-
-## 1. Cài và kiểm tra database
-
-Cần Docker Desktop hoặc Docker Engine + Compose, Python **3.11–3.14**, và mạng để tải image/dependencies lần đầu. Các lệnh sau chạy từ thư mục `starter/`:
+**Trạng thái bài hiện tại:** đã hoàn thành một run test và có [báo cáo](../report/individual/2A202603703_VuongXuanDuong.md),
+[kết quả/audit](../results/README.md). Nhãn định tính do Codex soạn sơ bộ, học viên đã
+đọc lại và xác nhận. Không thay tham số dựa trên test. Các lệnh mặc định dưới đây mô tả luồng
+ban đầu; bản repo có `results/test_started.json` nên muốn tái lập cần dùng thư mục riêng:
 
 ```bash
-cd starter
+python -m src.run --split dev --output-root ../results/reproduction
+python -m src.run --split test --output-root ../results/reproduction
+```
+
+Đây là tái lập tập đã công bố, không phải holdout mới. Để chỉ tổng hợp nhãn audit đã
+ghi nhận: `python scripts/summarize_audit.py` (không chạy lại retrieval).
+
+## Dữ liệu và cấu hình
+
+- Corpus: `../data/processed/pages.jsonl`, 52 trang được giữ, 42 trang được tính
+  bảo thủ; nguồn và giấy phép tại [data/README.md](../data/README.md).
+- Benchmark: `../benchmark/questions.jsonl`, 15 dev / 5 test đã chốt; quy tắc tại
+  [benchmark/README.md](../benchmark/README.md).
+- Tham số: [config.json](config.json).
+- Model: [intfloat/multilingual-e5-small](https://huggingface.co/intfloat/multilingual-e5-small),
+  revision `614241f622f53c4eeff9890bdc4f31cfecc418b3`, 384 chiều, CPU.
+- Document dùng prefix `passage: `; query dùng `query: `; chuẩn hóa vector L2.
+  Giới hạn 512 token, báo lỗi nếu vượt giới hạn thay vì âm thầm cắt.
+- Vector store: PostgreSQL 16 + pgvector 0.8.7, metric cosine, **exact search**,
+  không tạo ANN index. Filter JSONB được áp dụng trước khi lấy top-3.
+
+| Cấu hình | Chia chunk | Filter |
+|---|---|---|
+| A | 500 ký tự, overlap 50 | Không |
+| B | Ưu tiên ranh giới đoạn, tối đa 500 ký tự, không overlap | Không |
+| C | Chunk giống hệt B | Theo chapter khi câu hỏi yêu cầu |
+
+A–B so sánh hai chiến lược chunking (cả ranh giới và overlap thay đổi), không
+quy mọi khác biệt cho riêng ranh giới đoạn. B–C chỉ đổi filter. Code kiểm tra ID
+chunk B/C giống nhau. Cả ba dùng cùng model, snapshot, query và vector store.
+
+## Setup tái lập
+
+Đã chạy trên Linux x86_64, Python 3.14.10, PyTorch CPU. Cần Docker Compose;
+Poppler (`pdftotext`, `pdfinfo`) để chuẩn bị/kiểm tra corpus.
+Các lệnh dưới đây chạy từ thư mục `starter/`:
+
+```bash
 python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install 'torch==2.15.0+cpu' --index-url https://download.pytorch.org/whl/cpu
+python -m pip install -r requirements-lock.txt
 ```
 
-Kích hoạt `.venv`: macOS/Linux dùng `source .venv/bin/activate`; Windows PowerShell dùng `.venv\Scripts\Activate.ps1`. Sau đó:
+`requirements-lock.txt` lưu toàn bộ phiên bản đã cài trên môi trường thực nghiệm.
+Nếu chọn môi trường khác, `requirements.txt` liệt kê dependencies chính; cần tự
+chọn bản PyTorch phù hợp và ghi lại thay đổi. Lần tải model đầu cần mạng và dung
+lượng đĩa. Model tải từ Hugging Face; inference chạy local, không gửi corpus hay
+câu hỏi tới API embedding.
+
+Chỉ copy `.env` nếu chưa có, để không ghi đè cấu hình cá nhân:
 
 ```bash
-python -m pip install -r requirements.txt
-# macOS/Linux: cp .env.example .env
-# Windows PowerShell: Copy-Item .env.example .env
+[ -f .env ] || cp .env.example .env
 docker compose -p day6_student_starter up -d --wait
 python scripts/check_setup.py
 ```
 
-Kỳ vọng: hiện tên database, phiên bản PostgreSQL và pgvector, sau đó `Setup OK`. Đây **chỉ là kiểm tra hạ tầng**, không phải kết quả benchmark. Docker dùng cổng `127.0.0.1:55433` và mật khẩu cố định **chỉ dùng local cho lab**; nếu cổng bận, sửa đồng thời port trong `docker-compose.yml` và `DATABASE_URL` trong `.env`. `init.sql` chỉ chạy khi volume mới được tạo; nếu database sẵn có chưa bật extension, xem log Docker và kiểm tra cấu hình thay vì xóa volume chứa dữ liệu.
+Database chỉ bind `127.0.0.1:55433`. Thông tin local mặc định ở `.env.example`;
+`.env` bị gitignore. Volume Docker giữ dữ liệu khi dừng container. `init.sql` chỉ
+chạy trên volume mới; không cần xóa volume để chạy pipeline.
 
-Dừng container nhưng giữ dữ liệu:
+Nếu tái lập corpus trên máy mới (chạy từ root repo):
+
+```bash
+python3 starter/scripts/prepare_corpus.py
+python3 starter/scripts/check_benchmark.py
+```
+
+Đối chiếu checksum snapshot trong manifest; PDF nguồn có thể được nhà xuất bản
+cập nhật. Không tự ghi đè benchmark lock để bỏ qua thay đổi dữ liệu.
+
+## Chạy dev
+
+Từ `starter/`, với venv đã kích hoạt:
+
+```bash
+python -m src.run --split dev
+```
+
+Lệnh kiểm tra benchmark/corpus, nạp vector cho A/B/C vào schema
+`day6_ingestion`, chạy 15 câu dev và xuất thư mục có timestamp ở `../results/`.
+Mỗi lần chạy giữ thư mục kết quả riêng, không ghi đè trace cũ.
+
+Dữ liệu mỗi strategy trong database là một **snapshot đầy đủ**: nạp lại thay
+snapshot đó trong transaction, xóa chunk cũ và tài liệu đã bị loại bỏ, giữ nguyên
+các strategy khác. ID chunk ổn định theo tài liệu, trang, cấu hình, offset và
+text. Pipeline tự nạp hai lần, kiểm tra số lượng không đổi, rồi mở kết nối mới
+để kiểm tra số lượng đã lưu.
+
+Model load và query embedding được báo riêng. Thời gian ingest gồm chunking,
+document embedding và lần ghi đầu tiên; không gồm lần ghi kiểm tra nạp lại.
+Ba cấu hình đều được embed độc lập để ghi thời gian, kể cả B/C có cùng text.
+Warm-up và thứ tự A/B/C vẫn gây sai số; đây là một lần đo minh họa.
+Chi phí dịch vụ trả phí là 0 USD; chưa tính điện, phần cứng, mạng và công sức.
+
+## Đọc kết quả
+
+Mỗi thư mục run có:
+
+- `summary.md`, `summary.json`: Hit@1/Hit@3 dạng n/N; số chunk, phân bố độ dài,
+  token, thời gian, chi phí và số bản ghi sau nạp lại.
+- `traces.jsonl`: mọi câu của split đang chạy, top-3 text/score/metadata, gold,
+  filter yêu cầu/filter thực sự áp dụng và nhãn exact-evidence.
+- `chunks_A.jsonl`, `chunks_B.jsonl`, `chunks_C.jsonl`: chunk và offset nguồn.
+- `run_metadata.json`: model/revision, phiên bản Python/thư viện/database,
+  cấu hình và checksum dữ liệu/code.
+- `coherence_samples.jsonl`: mẫu cùng 10 vị trí nguồn, **nhãn để trống**.
+- `run.log`; nếu lỗi có `failure.json`, không fallback mock.
+
+`../results/selection.json` ghi cấu hình được chọn theo dev: ưu tiên Hit@3,
+Hit@1, thời gian ingest, rồi thứ tự A/B/C nếu vẫn hòa. Quy tắc này được ghi trong
+benchmark trước retrieval. `../artifacts/experiment_log.csv` được cập nhật bằng
+kết quả thực, cột test để trống khi chỉ chạy dev.
+
+Hit tự động yêu cầu đúng document/page và chứa đầy đủ evidence chính hoặc một
+alternative hợp lệ sau chuẩn hóa whitespace. Bằng chứng đúng nhưng diễn đạt
+khác chưa ghi vào gold có thể bị bỏ sót; cần audit thủ công và ghi lý do nhất
+quán. Nếu evidence bị cắt qua nhiều chunk, metric chính tính miss. Không suy ra
+điểm coherence, metadata hay grounding từ Hit@3.
+
+## Truy vấn thử
+
+Sau dev, có thể tìm top-3 bằng câu hỏi riêng:
+
+```bash
+python -m src.query 'Trong chương Files, thư viện nào trích xuất thông tin từ PDF?' --strategy C --chapter 14
+```
+
+CLI chỉ tạo query embedding từ câu hỏi; không truy cập gold để tìm đáp án. Trả
+về evidence cùng nguồn/trang/score, không gọi LLM sinh câu trả lời.
+
+## Test holdout và chấm thủ công
+
+Chưa cần chạy lệnh dưới đây trong giai đoạn phát triển. Khi đã cố định lựa chọn:
+
+```bash
+python -m src.run --split test
+```
+
+Lệnh yêu cầu selection dev tồn tại và checksum code/config/corpus/benchmark
+không thay đổi. Xuất kết quả cho cả ba cấu hình, cùng file
+`human_audit_samples.jsonl` để điền nhãn grounding/metadata. Sau khi mở test,
+lệnh dev ở cùng output root bị chặn để tránh vô tình tiếp tục tinh chỉnh rồi
+báo như holdout độc lập. Thí nghiệm mới phải được ghi nhận riêng.
+
+Mẫu chấm thủ công mới là đầu vào để học viên đọc và ghi nhãn; pipeline không
+điền thay nhãn con người. Báo cáo cá nhân, audit đầy đủ và phân tích lỗi vẫn cần
+hoàn thiện theo GUIDE.md.
+
+## Kiểm tra code
+
+```bash
+python -m unittest discover -s tests -v
+RUN_DB_TESTS=1 python -m unittest discover -s tests -v
+```
+
+Lệnh thứ hai dùng PostgreSQL thật, tạo strategy riêng với ID ngẫu nhiên rồi dọn
+chính các dòng đó. Vector cơ sở trong test chỉ kiểm tra toán/ranking của store;
+pipeline thực dùng model E5. Test bao phủ offset và độ phủ nội dung, Unicode,
+evidence/alternative, filter, nạp lại, xóa chunk cũ, kết nối lại và từ chối batch
+vector sai mà không mất snapshot hiện có.
+
+Dừng database nhưng giữ dữ liệu:
 
 ```bash
 docker compose -p day6_student_starter stop
 ```
-
-## 2. Chọn embedding model
-
-Điền key tương ứng trong `.env` nếu dùng OpenRouter, OpenAI hoặc Gemini; **không commit `.env`**. Model local không cần API key. `requirements.txt` chỉ có dependencies cơ bản: tự cài SDK hoặc thư viện local phù hợp với model bạn chọn và ghi lại version/lệnh cài trong báo cáo. Ghi tên model và số chiều; dùng cùng model cho toàn bộ chiến lược và vector query tương thích vector document.
-
-## 3. Hoàn thiện pipeline
-
-1. Đặt corpus vào `data/` hoặc cung cấp manifest/hướng dẫn truy cập. Đọc [GUIDE.md](../GUIDE.md) về **30 trang nội dung**, quyền dữ liệu và metadata.
-2. Hoàn thiện từng hàm TODO trong `src/`. Lưu ID tài liệu, nguồn, trang/vị trí và ít nhất một trường filter có ích.
-3. Xây ít nhất ba cấu hình; ví dụ A fixed-size, B theo đoạn, C như B nhưng có filter. Cần cùng corpus, model và benchmark; nạp lại không nhân đôi và xử lý chunk cũ khi dữ liệu đổi.
-4. Tự viết ít nhất 20 câu hỏi kèm evidence, tách dev/test trước khi thử theo [BENCHMARK.md](../BENCHMARK.md). Lưu trace top-3 và báo cáo đủ năm tiêu chí.
-5. Sau khi hoàn thiện, chạy `python -m src.run` từ thư mục `starter/`. Trước khi làm TODO, lệnh này **chủ động báo `NotImplementedError`**.
-
-Lưu code, cấu hình, kết quả và lệnh chạy để người chấm tái lập; không commit key, dữ liệu mật hoặc dữ liệu không có quyền chia sẻ.

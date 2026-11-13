@@ -1,0 +1,81 @@
+{
+  "question": "Trong chương Files, thư viện nào trích xuất thông tin từ PDF?",
+  "strategy": "C",
+  "filter": {
+    "chapter": 14
+  },
+  "hits": [
+    {
+      "chunk_id": "e563a494b460636187c34fbbe569e951",
+      "document_id": "openstax-introduction-python-ch14-15",
+      "source": "data/raw/Introduction_to_Python_Programming-WEB.pdf",
+      "page": 338,
+      "text": "328   14 • Files\n\n        Access multimedia content (http://openstax.org/books/introduction-python-programming/pages/\n        14-5-raising-exceptions)\n\n        TRY IT\n\n",
+      "metadata": {
+        "page": 338,
+        "source": "data/raw/Introduction_to_Python_Programming-WEB.pdf",
+        "chapter": 14,
+        "page_id": "openstax-introduction-python-ch14-15:pdf-338",
+        "chunking": "paragraph:500",
+        "end_char": 168,
+        "language": "en",
+        "source_url": "https://assets.openstax.org/oscms-prodcms/media/documents/Introduction_to_Python_Programming-WEB.pdf",
+        "start_char": 0,
+        "attribution": "Access for free at openstax.org.",
+        "document_id": "openstax-introduction-python-ch14-15",
+        "printed_page": 328,
+        "chapter_title": "Files",
+        "counted_content_page": false
+      },
+      "score": 0.8010213375091553
+    },
+    {
+      "chunk_id": "b9eb4e3f1072f3d8259303e994dde39d",
+      "document_id": "openstax-introduction-python-ch14-15",
+      "source": "data/raw/Introduction_to_Python_Programming-WEB.pdf",
+      "page": 331,
+      "text": "14.4 • Handling exceptions   321\n\n Some types of non-Unicode files can be read using specialized libraries that support the reading and writing\n of different file types.\n\n PyPDF (https://openstax.org/r/100readthedocs) is a popular library that can be used to extract information\n from PDF files.\n\n",
+      "metadata": {
+        "page": 331,
+        "source": "data/raw/Introduction_to_Python_Programming-WEB.pdf",
+        "chapter": 14,
+        "page_id": "openstax-introduction-python-ch14-15:pdf-331",
+        "chunking": "paragraph:500",
+        "end_char": 297,
+        "language": "en",
+        "source_url": "https://assets.openstax.org/oscms-prodcms/media/documents/Introduction_to_Python_Programming-WEB.pdf",
+        "start_char": 0,
+        "attribution": "Access for free at openstax.org.",
+        "document_id": "openstax-introduction-python-ch14-15",
+        "printed_page": 321,
+        "chapter_title": "Files",
+        "counted_content_page": true
+      },
+      "score": 0.7935267213865103
+    },
+    {
+      "chunk_id": "672f57b45b56f9039b7d50bf56a2404d",
+      "document_id": "openstax-introduction-python-ch14-15",
+      "source": "data/raw/Introduction_to_Python_Programming-WEB.pdf",
+      "page": 330,
+      "text": "             c. Title, Author, Pages\n\n       EXPLORING FURTHER\n\n       Files such as Word documents (.docx) and PDF documents (.pdf), image formats such as Portable Network\n       Graphics (PNG, .png) and Joint Photographic Experts Group (JPEG, .jpeg or .jpg) as well as many other file\n       types are encoded differently.\n\n      Access for free at openstax.org",
+      "metadata": {
+        "page": 330,
+        "source": "data/raw/Introduction_to_Python_Programming-WEB.pdf",
+        "chapter": 14,
+        "page_id": "openstax-introduction-python-ch14-15:pdf-330",
+        "chunking": "paragraph:500",
+        "end_char": 1939,
+        "language": "en",
+        "source_url": "https://assets.openstax.org/oscms-prodcms/media/documents/Introduction_to_Python_Programming-WEB.pdf",
+        "start_char": 1576,
+        "attribution": "Access for free at openstax.org.",
+        "document_id": "openstax-introduction-python-ch14-15",
+        "printed_page": 320,
+        "chapter_title": "Files",
+        "counted_content_page": true
+      },
+      "score": 0.7916699051856995
+    }
+  ]
+}

@@ -1,4 +1,10 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed,500,50,document_id/source/page/chapter/language/offsets,none,intfloat/multilingual-e5-small@614241f622f53c4eeff9890bdc4f31cfecc418b3,Fixed character windows provide a simple baseline; overlap may preserve boundary evidence.,0.4,0.4666666666666667,,,results/20261113T103141760105Z-dev
+B,paragraph,500,0,document_id/source/page/chapter/language/offsets,none,intfloat/multilingual-e5-small@614241f622f53c4eeff9890bdc4f31cfecc418b3,Paragraph boundaries may improve coherence; large paragraphs still require splitting.,0.6,0.7333333333333333,,,results/20261113T103141760105Z-dev
+C,paragraph,500,0,document_id/source/page/chapter/language/offsets,chapter when requested,intfloat/multilingual-e5-small@614241f622f53c4eeff9890bdc4f31cfecc418b3,Chapter filters may improve scoped retrieval; identical chunks to B.,0.6,0.7333333333333333,,,results/20261113T103141760105Z-dev
+A,fixed,500,50,document_id/source/page/chapter/language/offsets,none,intfloat/multilingual-e5-small@614241f622f53c4eeff9890bdc4f31cfecc418b3,Fixed character windows provide a simple baseline; overlap may preserve boundary evidence.,0.4,0.4666666666666667,,,results/20261113T103339652250Z-dev
+B,paragraph,500,0,document_id/source/page/chapter/language/offsets,none,intfloat/multilingual-e5-small@614241f622f53c4eeff9890bdc4f31cfecc418b3,Paragraph boundaries may improve coherence; large paragraphs still require splitting.,0.6,0.7333333333333333,,,results/20261113T103339652250Z-dev
+C,paragraph,500,0,document_id/source/page/chapter/language/offsets,chapter when requested,intfloat/multilingual-e5-small@614241f622f53c4eeff9890bdc4f31cfecc418b3,Chapter filters may improve scoped retrieval; identical chunks to B.,0.6,0.7333333333333333,,,results/20261113T103339652250Z-dev
+A,fixed,500,50,document_id/source/page/chapter/language/offsets,none,intfloat/multilingual-e5-small@614241f622f53c4eeff9890bdc4f31cfecc418b3,Fixed character windows provide a simple baseline; overlap may preserve boundary evidence.,,,0.4,0.4,results/20261113T103637017303Z-test
+B,paragraph,500,0,document_id/source/page/chapter/language/offsets,none,intfloat/multilingual-e5-small@614241f622f53c4eeff9890bdc4f31cfecc418b3,Paragraph boundaries may improve coherence; large paragraphs still require splitting.,,,0.4,0.6,results/20261113T103637017303Z-test
+C,paragraph,500,0,document_id/source/page/chapter/language/offsets,chapter when requested,intfloat/multilingual-e5-small@614241f622f53c4eeff9890bdc4f31cfecc418b3,Chapter filters may improve scoped retrieval; identical chunks to B.,,,0.4,0.6,results/20261113T103637017303Z-test

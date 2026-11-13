@@ -10,7 +10,7 @@ Biến tài liệu thành kho tri thức có thể truy xuất cho AI agent, r�
 
 ## Bắt đầu nhanh
 
-Dùng [starter PostgreSQL + pgvector](starter/README.md) để dựng database và hoàn thiện các hàm TODO, hoặc tự chọn vector store tương đương. Starter chỉ là khung: **bạn tự hiện thực pipeline và benchmark**.
+Pipeline đã triển khai bằng [PostgreSQL + pgvector và embedding E5 local](starter/README.md). Corpus OpenStax chương 14–15 được mô tả tại [data/README.md](data/README.md); bộ 20 câu hỏi tại [benchmark/README.md](benchmark/README.md). Đã chạy dev/test, có [kết quả và audit](results/README.md), [báo cáo cá nhân](report/individual/2A202603703_VuongXuanDuong.md) và [trạng thái bài nộp](SUBMISSION_STATUS.md). Nhãn định tính do Codex soạn sơ bộ, học viên đã đọc lại và xác nhận.
 
 ## 1. Xây pipeline
 

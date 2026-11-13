@@ -1,0 +1,85 @@
+{
+  "metrics": [
+    {
+      "strategy": "A",
+      "split": "dev",
+      "questions": 15,
+      "hit1_n": 6,
+      "hit1": 0.4,
+      "hit3_n": 7,
+      "hit3": 0.4666666666666667
+    },
+    {
+      "strategy": "B",
+      "split": "dev",
+      "questions": 15,
+      "hit1_n": 9,
+      "hit1": 0.6,
+      "hit3_n": 11,
+      "hit3": 0.7333333333333333
+    },
+    {
+      "strategy": "C",
+      "split": "dev",
+      "questions": 15,
+      "hit1_n": 9,
+      "hit1": 0.6,
+      "hit3_n": 11,
+      "hit3": 0.7333333333333333
+    }
+  ],
+  "human_audit_status": "not_scored",
+  "ingestion": {
+    "A": {
+      "chunks": 222,
+      "length_min": 91,
+      "length_median": 500.0,
+      "length_max": 500,
+      "length_mean": 454.1261261261261,
+      "total_characters": 100816,
+      "document_tokens_including_prefix": 21772,
+      "max_document_tokens": 184,
+      "chunking_seconds": 0.0010278789995936677,
+      "embedding_seconds": 6.86362359400664,
+      "store_write_seconds": 0.063173899994581,
+      "ingest_seconds": 6.927832183995633,
+      "reload_count": 222,
+      "reload_seconds": 0.058695379993878305,
+      "paid_service_cost_usd": 0
+    },
+    "B": {
+      "chunks": 252,
+      "length_min": 20,
+      "length_median": 414.0,
+      "length_max": 500,
+      "length_mean": 366.3333333333333,
+      "total_characters": 92316,
+      "document_tokens_including_prefix": 20038,
+      "max_document_tokens": 180,
+      "chunking_seconds": 0.0012932609970448539,
+      "embedding_seconds": 6.39754962499137,
+      "store_write_seconds": 0.06572143798985053,
+      "ingest_seconds": 6.464578920000349,
+      "reload_count": 252,
+      "reload_seconds": 0.07422214600956067,
+      "paid_service_cost_usd": 0
+    },
+    "C": {
+      "chunks": 252,
+      "length_min": 20,
+      "length_median": 414.0,
+      "length_max": 500,
+      "length_mean": 366.3333333333333,
+      "total_characters": 92316,
+      "document_tokens_including_prefix": 20038,
+      "max_document_tokens": 180,
+      "chunking_seconds": 0.0017655819974606857,
+      "embedding_seconds": 6.235238437002408,
+      "store_write_seconds": 0.09263229501084425,
+      "ingest_seconds": 6.329657941998448,
+      "reload_count": 252,
+      "reload_seconds": 0.06884419899142813,
+      "paid_service_cost_usd": 0
+    }
+  }
+}

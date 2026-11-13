@@ -1,0 +1,85 @@
+{
+  "metrics": [
+    {
+      "strategy": "A",
+      "split": "test",
+      "questions": 5,
+      "hit1_n": 2,
+      "hit1": 0.4,
+      "hit3_n": 2,
+      "hit3": 0.4
+    },
+    {
+      "strategy": "B",
+      "split": "test",
+      "questions": 5,
+      "hit1_n": 2,
+      "hit1": 0.4,
+      "hit3_n": 3,
+      "hit3": 0.6
+    },
+    {
+      "strategy": "C",
+      "split": "test",
+      "questions": 5,
+      "hit1_n": 2,
+      "hit1": 0.4,
+      "hit3_n": 3,
+      "hit3": 0.6
+    }
+  ],
+  "human_audit_status": "not_scored",
+  "ingestion": {
+    "A": {
+      "chunks": 222,
+      "length_min": 91,
+      "length_median": 500.0,
+      "length_max": 500,
+      "length_mean": 454.1261261261261,
+      "total_characters": 100816,
+      "document_tokens_including_prefix": 21772,
+      "max_document_tokens": 184,
+      "chunking_seconds": 0.0014247780054574832,
+      "embedding_seconds": 7.438237237001886,
+      "store_write_seconds": 0.06300103099783882,
+      "ingest_seconds": 7.502670200003195,
+      "reload_count": 222,
+      "reload_seconds": 0.05985787899408024,
+      "paid_service_cost_usd": 0
+    },
+    "B": {
+      "chunks": 252,
+      "length_min": 20,
+      "length_median": 414.0,
+      "length_max": 500,
+      "length_mean": 366.3333333333333,
+      "total_characters": 92316,
+      "document_tokens_including_prefix": 20038,
+      "max_document_tokens": 180,
+      "chunking_seconds": 0.001897220005048439,
+      "embedding_seconds": 6.618972260010196,
+      "store_write_seconds": 0.07261014899995644,
+      "ingest_seconds": 6.6934956010081805,
+      "reload_count": 252,
+      "reload_seconds": 0.06706794800993521,
+      "paid_service_cost_usd": 0
+    },
+    "C": {
+      "chunks": 252,
+      "length_min": 20,
+      "length_median": 414.0,
+      "length_max": 500,
+      "length_mean": 366.3333333333333,
+      "total_characters": 92316,
+      "document_tokens_including_prefix": 20038,
+      "max_document_tokens": 180,
+      "chunking_seconds": 0.001698091989965178,
+      "embedding_seconds": 6.78296635200968,
+      "store_write_seconds": 0.06971433499711566,
+      "ingest_seconds": 6.854396372989868,
+      "reload_count": 252,
+      "reload_seconds": 0.06607915100175887,
+      "paid_service_cost_usd": 0
+    }
+  }
+}

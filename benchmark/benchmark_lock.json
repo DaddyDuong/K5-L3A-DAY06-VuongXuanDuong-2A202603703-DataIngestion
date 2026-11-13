@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "created_at": "2026-11-13T10:19:38.214632+00:00",
+  "questions_sha256": "81bb90bb97dbf49bc0a9399b16b0ffe5e05a2a8b6f473d37f8c5a6c2a9c4ab93",
+  "corpus_pdf_sha256": "e1298e4fcfe541a8fc3bb786c5756d3d2be8e6ffc07997f1bc1e0ac270be383d",
+  "pages_jsonl_sha256": "383fb2b1990351e9856237f08d9f6583fd03bb1f52ddef4871f230b1d356a1c1",
+  "dev_ids": [
+    "q01",
+    "q02",
+    "q03",
+    "q04",
+    "q05",
+    "q06",
+    "q07",
+    "q08",
+    "q09",
+    "q10",
+    "q11",
+    "q12",
+    "q13",
+    "q14",
+    "q15"
+  ],
+  "test_ids": [
+    "q16",
+    "q17",
+    "q18",
+    "q19",
+    "q20"
+  ],
+  "filter_ids": [
+    "q06",
+    "q10",
+    "q19"
+  ],
+  "selection_rule": "Choose strategy by dev Evidence Hit@3, then dev Hit@1, then lower measured ingestion time; if still tied choose A, then B, then C. Freeze configuration before running test. Never use test labels to tune.",
+  "status": "Questions authored and evidence checked before any retrieval experiment; no retrieval results or human retrieval audit labels yet."
+}

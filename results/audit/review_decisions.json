@@ -1,0 +1,151 @@
+{
+  "reviewer": "Vương Xuân Dương (học viên); Codex soạn nhãn sơ bộ",
+  "reviewer_type": "Student-verified, AI-assisted",
+  "human_review_status": "reviewed_and_confirmed_by_student",
+  "method": "Codex drafted labels with reasons after reading every sampled chunk and all 15 test top-3 cases against normalized source page text; original PDF pages 324,336,337,357,361 were inspected visually. The student read every label, checked it against the source and confirmed it. Not blinded: the reviewer had seen the metrics. Scores are not inferred from cosine or exact-match labels.",
+  "coherence_decisions": {
+    "A": {
+      "319": {
+        "score": 1,
+        "reason": "Giữ được đoạn giới thiệu đọc/ghi file nhưng kết thúc ở \"Reading and writing fi\", cắt giữa từ và ý tiếp theo."
+      },
+      "320": {
+        "score": 1,
+        "reason": "Câu hỏi mở file thứ nhất đủ lựa chọn, nhưng câu thứ hai bị cắt ở \"Suppose that there is no file\"."
+      },
+      "321": {
+        "score": 1,
+        "reason": "Phần read() đầu có đóng file, nhưng ví dụ tiếp theo bị cắt giữa comment \"into a str\"; chưa trọn ví dụ."
+      },
+      "322": {
+        "score": 1,
+        "reason": "Có dữ liệu input và câu hỏi read(), nhưng phần trả lời/lựa chọn tiếp nối nằm ngoài chunk."
+      },
+      "323": {
+        "score": 1,
+        "reason": "Mục tiêu Writing to files đầy đủ, nhưng đầu chunk là output của ví dụ trang trước chưa có ngữ cảnh giải thích."
+      },
+      "324": {
+        "score": 0,
+        "reason": "Bảng mode bị cắt ở điều kiện \"If the file does not\"; các cột nhiều khoảng trắng làm hàng không trọn nghĩa."
+      },
+      "325": {
+        "score": 1,
+        "reason": "Có giải thích close() và code ghi file, nhưng kết thúc giữa comment lưu thay đổi; ví dụ chưa đủ vòng đời file."
+      },
+      "326": {
+        "score": 1,
+        "reason": "Có output và tiêu đề write()/close(); bài tập hỏi về các snippet nhưng chưa có snippet nào trong chunk."
+      },
+      "327": {
+        "score": 1,
+        "reason": "Bài tập out.txt đầu đầy đủ; bài tập out.log tiếp theo bị cắt ở \"after the cod\"."
+      },
+      "328": {
+        "score": 1,
+        "reason": "Đọc được hàng Mac/Linux của bảng đường dẫn, nhưng hàng Windows bị cắt giữa lệnh open()."
+      }
+    },
+    "B": {
+      "319": {
+        "score": 2,
+        "reason": "Kết thúc đúng sau đoạn giới thiệu đọc/ghi file, giữ trọn câu và đủ chủ đề chương; không cắt sang đoạn sau."
+      },
+      "320": {
+        "score": 2,
+        "reason": "Giữ trọn một câu hỏi mở file cùng ba lựa chọn, dừng trước câu tiếp theo; tự hiểu được yêu cầu."
+      },
+      "321": {
+        "score": 1,
+        "reason": "Giữ nguyên các dòng code, nhưng chia giữa ví dụ: phần thứ hai mới mở infile2, chưa có thao tác đọc/đóng."
+      },
+      "322": {
+        "score": 1,
+        "reason": "Giữ trọn phần dẫn và dữ liệu input.txt nhưng chưa có câu hỏi/thao tác cụ thể; cần chunk sau để hoàn tất bài tập."
+      },
+      "323": {
+        "score": 1,
+        "reason": "Mục tiêu học tập đủ ý nhưng output đầu trang thuộc ví dụ trước, nên toàn chunk còn thiếu ngữ cảnh."
+      },
+      "324": {
+        "score": 0,
+        "reason": "Chunk chỉ chứa số trang và tiêu đề cột Parameter/Mode name/Example, không có hàng nội dung nào."
+      },
+      "325": {
+        "score": 1,
+        "reason": "Dừng tại ranh giới đoạn, không cắt từ, nhưng code ví dụ ghi file vẫn chưa có close()/append; cần phần tiếp nối."
+      },
+      "326": {
+        "score": 1,
+        "reason": "Giữ hết câu dẫn bài tập nhưng chưa chứa snippet để đọc và trả lời; output đầu chunk cũng thiếu code gốc."
+      },
+      "327": {
+        "score": 1,
+        "reason": "Giữ trọn bài tập out.txt, nhưng kết thúc bằng tiêu đề TRY IT trống của bài tiếp theo."
+      },
+      "328": {
+        "score": 1,
+        "reason": "Giữ trọn hàng Mac/Linux; bảng còn hàng Windows ở chunk kế tiếp, nên chỉ hiểu được một phần bảng nguồn."
+      }
+    }
+  },
+  "grounding_decisions": {
+    "A": {
+      "q16": {
+        "score": 1,
+        "reason": "Top-3 mô tả trường hợp ĐÃ bắt FileNotFoundError và cấu trúc try/except; không có đủ cả thông báo lỗi lẫn kết thúc khi KHÔNG bắt ngoại lệ."
+      },
+      "q17": {
+        "score": 2,
+        "reason": "Rank 1, PDF 337, có câu nêu rõ raise trong constructor ngăn tạo đối tượng không hợp lệ, kèm ví dụ p1/p2."
+      },
+      "q18": {
+        "score": 2,
+        "reason": "Rank 1, PDF 357, nêu đủ Boolean DataFrame, cùng kích thước nguồn và True tại vị trí thiếu."
+      },
+      "q19": {
+        "score": 2,
+        "reason": "Rank 2, PDF 357, có ví dụ df.fillna(df.mean()) được giải thích là thay mọi Null bằng trung bình cột; đủ xác định fillna() là hàm thay thế. Rank 1 chỉ là trắc nghiệm, không được dùng làm bằng chứng quyết định. Đây là bằng chứng tương đương, không khớp toàn bộ gold nguyên văn."
+      },
+      "q20": {
+        "score": 1,
+        "reason": "Top-3 chỉ có nhóm thư viện data science/EDA hoặc câu hỏi công cụ; không thấy đủ bộ Matplotlib, Plotly và Seaborn để trả lời."
+      }
+    },
+    "B": {
+      "q16": {
+        "score": 1,
+        "reason": "Top-3 nói về ngoại lệ được bắt và cách chạy try/except; thiếu kết luận đầy đủ về thông báo lỗi và kết thúc khi không xử lý."
+      },
+      "q17": {
+        "score": 2,
+        "reason": "Rank 2, PDF 337, giữ trọn câu về ngăn tạo đối tượng không hợp lệ. Rank 1 là bài tập constructor khác nên top-1 chưa đủ."
+      },
+      "q18": {
+        "score": 2,
+        "reason": "Rank 1, PDF 357, giữ đủ định nghĩa isnull(), kiểu/kích thước kết quả và ý nghĩa True; hai rank sau chỉ là bảng rời."
+      },
+      "q19": {
+        "score": 1,
+        "reason": "Rank 1, PDF 360, chỉ là câu trắc nghiệm fillna(0)/replacena(0)/fill(0) không kèm nhãn đáp án; rank 2 và 3 chỉ là header. Không dùng kiến thức ngoài corpus để chọn hộ đáp án."
+      },
+      "q20": {
+        "score": 2,
+        "reason": "Rank 1, PDF 361, có đủ ba framework Matplotlib, Plotly và Seaborn; nguồn và trang có thể truy vết."
+      }
+    }
+  },
+  "c_policy": "C has byte-identical chunks to B and identical test top-3 results; reuse B judgments only after verifying these identities.",
+  "semantic_overrides": [
+    {
+      "strategy": "A",
+      "question_id": "q19",
+      "rank": 2,
+      "source_page": 357,
+      "chunk_id": "1ee41a788790fb44fa2639ebd0d6ba24",
+      "evidence_quote": "Ex: df.fillna(df.mean()) replaces all Null values with the average value of the specific column.",
+      "reason": "An explicit fillna example with a provided substitute (column mean) supports the requested function. Same gold source/page; strict full-quote matching missed this equivalent single-chunk evidence."
+    }
+  ],
+  "gold_policy": "Keep original benchmark, raw traces and strict automatic metrics unchanged. Semantic overrides are post-test audit overlays, applied consistently to all 15 cases. Report strict and AI-reviewed metrics separately; never tune on this audit."
+}

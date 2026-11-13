@@ -1,0 +1,16 @@
+2026-11-13 17:36:37,553 INFO Loading real model intfloat/multilingual-e5-small, revision 614241f622f53c4eeff9890bdc4f31cfecc418b3
+2026-11-13 17:36:41,529 INFO HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-small/resolve/614241f622f53c4eeff9890bdc4f31cfecc418b3/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-11-13 17:36:41,530 WARNING Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-11-13 17:36:41,531 INFO Loading SentenceTransformer model from intfloat/multilingual-e5-small.
+2026-11-13 17:36:41,844 INFO HTTP Request: HEAD https://huggingface.co/intfloat/multilingual-e5-small/resolve/614241f622f53c4eeff9890bdc4f31cfecc418b3/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-11-13 17:36:42,372 INFO HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-small/tree/614241f622f53c4eeff9890bdc4f31cfecc418b3/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-11-13 17:36:42,785 INFO HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-small/tree/614241f622f53c4eeff9890bdc4f31cfecc418b3?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-11-13 17:36:45,020 INFO HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-small "HTTP/1.1 200 OK"
+2026-11-13 17:36:45,644 INFO HTTP Request: GET https://huggingface.co/api/models/intfloat/multilingual-e5-small "HTTP/1.1 200 OK"
+2026-11-13 17:36:46,051 INFO Ingesting strategy A
+2026-11-13 17:36:53,630 INFO Strategy A: 222 chunks, reload count 222
+2026-11-13 17:36:53,630 INFO Ingesting strategy B
+2026-11-13 17:37:00,407 INFO Strategy B: 252 chunks, reload count 252
+2026-11-13 17:37:00,407 INFO Ingesting strategy C
+2026-11-13 17:37:07,343 INFO Strategy C: 252 chunks, reload count 252
+2026-11-13 17:37:07,354 INFO Completed test benchmark. Results: results/20261113T103637017303Z-test

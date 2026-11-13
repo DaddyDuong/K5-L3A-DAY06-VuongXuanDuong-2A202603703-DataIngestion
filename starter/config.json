@@ -1,0 +1,16 @@
+{
+  "model": "intfloat/multilingual-e5-small",
+  "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+  "device": "cpu",
+  "batch_size": 16,
+  "threads": 4,
+  "dimensions": 384,
+  "metric": "cosine",
+  "search": "exact",
+  "top_k": 3,
+  "strategies": {
+    "A": {"chunking": "fixed", "chunk_size": 500, "overlap": 50, "use_filter": false},
+    "B": {"chunking": "paragraph", "chunk_size": 500, "overlap": 0, "use_filter": false},
+    "C": {"chunking": "paragraph", "chunk_size": 500, "overlap": 0, "use_filter": true}
+  }
+}

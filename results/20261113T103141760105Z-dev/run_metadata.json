@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-11-13T10:31:42.335669+00:00",
+  "split": "dev",
+  "config": {
+    "model": "intfloat/multilingual-e5-small",
+    "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "device": "cpu",
+    "batch_size": 16,
+    "threads": 4,
+    "dimensions": 384,
+    "metric": "cosine",
+    "search": "exact",
+    "top_k": 3,
+    "strategies": {
+      "A": {
+        "chunking": "fixed",
+        "chunk_size": 500,
+        "overlap": 50,
+        "use_filter": false
+      },
+      "B": {
+        "chunking": "paragraph",
+        "chunk_size": 500,
+        "overlap": 0,
+        "use_filter": false
+      },
+      "C": {
+        "chunking": "paragraph",
+        "chunk_size": 500,
+        "overlap": 0,
+        "use_filter": true
+      }
+    }
+  },
+  "fingerprints": {
+    "config_sha256": "9945148689a3379d22fe4e487c003967a037d2724954388521de8677730038e6",
+    "questions_sha256": "81bb90bb97dbf49bc0a9399b16b0ffe5e05a2a8b6f473d37f8c5a6c2a9c4ab93",
+    "pages_sha256": "383fb2b1990351e9856237f08d9f6583fd03bb1f52ddef4871f230b1d356a1c1",
+    "source_code_sha256": "6e2de2f8c8b65d89c3b374703d0f43efa112b77848965e9cbe4ec91a628e80f6"
+  },
+  "python": "3.14.10",
+  "packages": {
+    "torch": "2.15.0+cpu",
+    "sentence-transformers": "5.7.0",
+    "transformers": "5.22.2",
+    "psycopg": "3.3.8",
+    "pypdf": "6.21.4",
+    "numpy": "2.5.4"
+  },
+  "corpus_pages": 52,
+  "counted_content_pages": 42,
+  "embedding_provider": "local CPU; no remote inference API",
+  "paid_service_cost_usd": 0,
+  "cost_note": "Excludes electricity, hardware, network and labor",
+  "selection_rule": "Choose strategy by dev Evidence Hit@3, then dev Hit@1, then lower measured ingestion time; if still tied choose A, then B, then C. Freeze configuration before running test. Never use test labels to tune.",
+  "embedding_prefixes": {
+    "document": "passage: ",
+    "query": "query: "
+  },
+  "model_load_seconds": 10.769864322996,
+  "database_versions": {
+    "postgres": "16.16 (Debian 16.16-1.pgdg12+1)",
+    "pgvector": "0.8.7"
+  },
+  "model_max_tokens": 512,
+  "query_embedding_seconds": 0.36934090200520586,
+  "persisted_counts_after_reconnect": {
+    "A": 222,
+    "B": 252,
+    "C": 252
+  }
+}
